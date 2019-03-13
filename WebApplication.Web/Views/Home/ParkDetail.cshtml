@@ -3,6 +3,7 @@
     ViewData["Title"] = "ParkDetail";
 }
 
+<img src="~/images/parks/@(Model.ParkCode).jpg" />
 <h2>@Model.ParkName</h2>
 <h3>est. @Model.YearFounded</h3>
 <div>
@@ -18,5 +19,11 @@
     <p>Number of Campsites: @Model.NumberOfCampsites</p>
     <p>Annual Number of Visitors: @Model.AnnualVisitorCount</p>
     <p>Number of Animal Species: @Model.AnimalSpecies</p>
+
+    <div class="weather-link">
+        <a asp-controller="Home" asp-action="Weather" asp-route-id="@Model.ParkCode">
+            <h3>See Five day forecast</h3>
+         </a>
+    </div>
 </div>
 
