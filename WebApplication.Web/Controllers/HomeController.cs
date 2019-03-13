@@ -25,9 +25,9 @@ namespace WebApplication.Web.Controllers
         }    
         
         [HttpGet]
-        public IActionResult ParkDetail(string parkCode)
+        public IActionResult ParkDetail(string id)
         {
-            Park park = parkDao.GetParkDetails(parkCode);
+            Park park = parkDao.GetParkDetails(id);
             return View(park);
         }
 
