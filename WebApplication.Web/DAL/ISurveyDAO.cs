@@ -9,5 +9,6 @@ namespace WebApplication.Web.DAL
     public interface ISurveyDAO
     {
         bool CreateSurvey(Survey survey);
+        IList<SurveyResult> Results(); 
     }
 }

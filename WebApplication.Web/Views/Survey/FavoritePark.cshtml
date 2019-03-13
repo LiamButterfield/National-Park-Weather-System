@@ -1,7 +1,13 @@
-﻿
+﻿@model IList<SurveyResult>
 @{
     ViewData["Title"] = "FavoritePark";
 }
 
 <h2>FavoritePark</h2>
 
+<div>
+    @foreach (SurveyResult survey in Model)
+    {
+        <h1>@survey.ParkCode @survey.ParkCode.Count()</h1>
+    }
+</div>

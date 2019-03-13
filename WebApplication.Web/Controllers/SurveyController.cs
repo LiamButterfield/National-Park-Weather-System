@@ -12,9 +12,11 @@ namespace WebApplication.Web.Controllers
     public class SurveyController : Controller
     {
         private ISurveyDAO surveyDao;
-        public SurveyController(ISurveyDAO surveyDao)
+        private IParkDAO parkDao;
+        public SurveyController(ISurveyDAO surveyDao, IParkDAO parkDao)
         {
             this.surveyDao = surveyDao;
+            this.parkDao = parkDao;
         }
 
         [HttpGet]
@@ -41,7 +43,8 @@ namespace WebApplication.Web.Controllers
 
         public IActionResult FavoritePark()
         {
-            return View();
+            IList<SurveyResult> surveys = surveyDao.Results();
+            return View(surveys);
         }
     }
 }
