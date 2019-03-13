@@ -1,5 +1,15 @@
-﻿@{
+﻿@model IList<Park>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Index</h2>
+
+<div>
+    @foreach(Park park in Model)
+    {
+        <h1>@park.ParkName</h1>
+        <img src="~/images/parks/@(park.ParkCode.ToLower()).jpg" />
+        <h2>@park.State</h2>
+        <p>@park.ParkDescription</p>
+    }
+</div>
