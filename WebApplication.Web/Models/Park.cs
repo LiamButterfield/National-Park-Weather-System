@@ -7,6 +7,8 @@ namespace WebApplication.Web.Models
 {
     public class Park
     {
+        public IList<Weather> Weathers { get; set; } = new List<Weather>();
+
         public string ParkCode { get; set; }
 
         public string ParkName { get; set; }

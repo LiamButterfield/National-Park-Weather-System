@@ -10,7 +10,5 @@ namespace WebApplication.Web.DAL
     {
         IList<Weather> GetForecast(string id);
 
-
-
     }
 }

@@ -1,4 +1,5 @@
-﻿@model Park
+﻿@using WebApplication.Web.Models;
+@model Park
 @{
     ViewData["Title"] = "ParkDetail";
 }
@@ -6,7 +7,8 @@
 <img src="~/images/parks/@(Model.ParkCode).jpg" />
 <h2>@Model.ParkName</h2>
 <h3>est. @Model.YearFounded</h3>
-<div>
+
+<div class="details-container">
     <h3>@Model.Quote</h3>
     <h4>@Model.QuoteSource</h4>
     <p>@Model.ParkDescription</p>
@@ -19,11 +21,24 @@
     <p>Number of Campsites: @Model.NumberOfCampsites</p>
     <p>Annual Number of Visitors: @Model.AnnualVisitorCount</p>
     <p>Number of Animal Species: @Model.AnimalSpecies</p>
-
-    <div class="weather-link">
-        <a asp-controller="Home" asp-action="Weather" asp-route-id="@Model.ParkCode">
-            <h3>See Five day forecast</h3>
-         </a>
-    </div>
 </div>
+
+<div class="weather-container">
+    <h2>WEATHER</h2>
+    @foreach (Weather weather in Model.Weathers)
+    {
+         <div class="days-container">
+             <img src="~/images/weather/@(weather.Forecast).png" />
+             <h3>@weather.Forecast</h3>
+             <h3>High @weather.High Low @weather.Low</h3>
+
+             <p>@weather.ForecastSuggestionString(weather.Forecast)</p>
+             <p>@weather.TempSuggestionString(weather.High,weather.Low)</p>
+
+        </div>
+
+
+    }
+</div>
+
 

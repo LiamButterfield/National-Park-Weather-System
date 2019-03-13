@@ -35,6 +35,7 @@ namespace WebApplication.Web.DAL
                         weathers.Add(weather);
                     }
                 }
+            }
 
             catch (SqlException ex)
             {

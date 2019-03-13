@@ -35,8 +35,9 @@ namespace WebApplication.Web.DAL
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        Park park = ConvertReaderToPark(reader);
+                        Park park = ConvertReaderToPark(reader);  
                         parks.Add(park);
+                        
                     }
                 }
             } 
@@ -46,6 +47,7 @@ namespace WebApplication.Web.DAL
             }
             return parks;
         }
+  
 
         private Park ConvertReaderToPark(SqlDataReader reader)
         {

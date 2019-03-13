@@ -13,7 +13,7 @@ namespace WebApplication.Web.Controllers
     {
         private IParkDAO parkDao;
         private IWeatherDAO weatherDao;
-        public HomeController(IParkDAO parkDao,IWeatherDAO weatherDao)
+        public HomeController(IParkDAO parkDao, IWeatherDAO weatherDao)
         {
             this.parkDao = parkDao;
             this.weatherDao = weatherDao;
@@ -30,14 +30,8 @@ namespace WebApplication.Web.Controllers
         public IActionResult ParkDetail(string id)
         {
             Park park = parkDao.GetParkDetails(id);
+            park.Weathers = weatherDao.GetForecast(id);
             return View(park);
-        }
-
-        [HttpGet]
-        public IActionResult Weather(string id)
-        {
-            IList<Weather> model = weatherDao.GetForecast(id);
-            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
