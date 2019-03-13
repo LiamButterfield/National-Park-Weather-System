@@ -15,6 +15,11 @@ namespace WebApplication.Web.DAL
             this.connectionString = connectionString;
         }
 
+        public Park GetParkDetails(string parkCode)
+        {
+            return GetAllParks().FirstOrDefault(p => p.ParkCode == parkCode);
+        }
+
         public IList<Park> GetAllParks()
         {
             IList<Park> parks = new List<Park>();

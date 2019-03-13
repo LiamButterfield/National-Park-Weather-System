@@ -8,6 +8,7 @@ namespace WebApplication.Web.DAL
 {
     public interface IParkDAO
     {
+        Park GetParkDetails(string parkCode);
         IList<Park> GetAllParks();
     }
 }
