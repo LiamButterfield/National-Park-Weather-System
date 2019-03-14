@@ -2,7 +2,6 @@
     margin: 5%;
 }
 
-
 #geek-logo {
     width: 30%;
     height: auto;
@@ -38,22 +37,52 @@ span{
     border-top: solid 2px black;
 }
 
+ul.default-tab{
+    background-color:darkseagreen;
+}
+
 .default-button {
     list-style: none;
     margin: 5px;
     text-align: center;
     line-height: 2rem;
-    background-color: orange;
     opacity: 0.9;
     border-radius: 5px;
     padding: 0px 6px;
 }
 
+.default-button:hover{
+    background-color:chartreuse;
+}
+
 .default-button a {
     text-decoration: none;
+    font-weight:bolder;
+    font-size:1.3rem;
+}
+
+
+.quote{
+    text-align:center;
+    
 }
 
 img.detail-image {
     width: 100%;
     height: auto;
+}
+
+.weather-container{
+    display:flex;
+}
+
+.days-container{
+    border:dashed 3px black;
+    padding-left:10px;
+    padding-right:10px;
+    background-color:lightgoldenrodyellow;
+}
+
+.days-container h2{
+    text-align:center;
 }

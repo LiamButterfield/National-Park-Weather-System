@@ -21,8 +21,6 @@ namespace WebApplication.Web.Models
 
         public string Forecast { get; set; }
 
-        public string Scale { get; set; }
-
         public string ForecastSuggestionString(string forecast)
         {
             Dictionary<string, string> forecastSuggestion = new Dictionary<string, string>()
