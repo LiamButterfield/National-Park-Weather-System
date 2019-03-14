@@ -3,11 +3,17 @@
     ViewData["Title"] = "FavoritePark";
 }
 
-<h2>FavoritePark</h2>
+<h2>Favorite Parks</h2>
 
 <div>
+    <h1>Thanks for participating in the Survey</h1>
+    <h2>Below are the current results</h2>
+
     @foreach (SurveyResult survey in Model)
     {
-        <h1>@survey.ParkCode @survey.ParkCode.Count()</h1>
+        <img src="~/images/parks/@(survey.ParkCode).jpg" />
+        <h2>@survey.ParkName : <span>@survey.SurveyCount</span></h2>  
     }
+    <h3>THANK YOU for visiting our WONDERFUL National Parks!!!</h3>
+    
 </div>

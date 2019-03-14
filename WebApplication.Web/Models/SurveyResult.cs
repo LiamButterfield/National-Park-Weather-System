@@ -9,6 +9,8 @@ namespace WebApplication.Web.Models
     {
         public string ParkCode { get; set; }
 
+        public string ParkName { get; set; }
+
         public int SurveyCount { get; set; }
 
         IList<Park> parks { get; set; } = new List<Park>();
