@@ -13,9 +13,15 @@ namespace WebApplication.Web.Models
 
         public int Low { get; set; }
 
+        public int DisplayLow { get; set; }
+
         public int High { get; set; }
 
+        public int DisplayHigh { get; set; }
+
         public string Forecast { get; set; }
+
+        public string Scale { get; set; }
 
         public string ForecastSuggestionString(string forecast)
         {
@@ -50,12 +56,6 @@ namespace WebApplication.Web.Models
                 suggestion = "Wear breathable layers.";
             }  
             return suggestion;
-        }
-
-        public decimal ConvertTempToCelsius (int temp)
-        {
-            decimal newTemp = (decimal)(temp - 32) * (5 / 9);
-            return newTemp;
         }
     }
 }

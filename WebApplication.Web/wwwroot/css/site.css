@@ -1,4 +1,9 @@
-﻿#geek-logo {
+﻿.Main-Panel {
+    margin: 5%;
+}
+
+
+#geek-logo {
     width: 30%;
     height: auto;
 }
@@ -46,4 +51,9 @@ span{
 
 .default-button a {
     text-decoration: none;
+}
+
+img.detail-image {
+    width: 100%;
+    height: auto;
 }

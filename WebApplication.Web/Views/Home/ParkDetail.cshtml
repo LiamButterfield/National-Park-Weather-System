@@ -1,44 +1,65 @@
-﻿@using WebApplication.Web.Models;
-@model Park
+﻿@model Park
 @{
     ViewData["Title"] = "ParkDetail";
+    string scale = (string)ViewData["scale"]; 
 }
 
-<img src="~/images/parks/@(Model.ParkCode).jpg" />
-<h2>@Model.ParkName</h2>
-<h3>est. @Model.YearFounded</h3>
+<div class="Main-Panel">
 
-<div class="details-container">
-    <h3>"@Model.Quote"</h3>
-    <h4>--@Model.QuoteSource</h4>
-    <p>@Model.ParkDescription</p>
-    <p>@Model.State</p>
-    <p>Entry Fee: @Model.EntryFee.ToString("C")</p>
-    <p><span>Climate:</span> @Model.Climate</p>
-    <p><span>Acreage:</span> @Model.Acreage</p>
-    <p><span>Elevation: </span>@Model.ElevationInFeet ft</p>
-    <p><span>Miles of Trail:</span> @Model.MilesOfTrail mi</p>
-    <p><span>Number of Campsites:</span> @Model.NumberOfCampsites</p>
-    <p><span>Annual Number of Visitors:</span> @Model.AnnualVisitorCount</p>
-    <p><span>Number of Animal Species:</span> @Model.AnimalSpecies</p>
+    <img class="detail-image" src="~/images/parks/@(Model.ParkCode).jpg" />
+    <h2>@Model.ParkName</h2>
+    <h3>est. @Model.YearFounded</h3>
+
+    <div class="details-container">
+        <h3>"@Model.Quote"</h3>
+        <h4>--@Model.QuoteSource</h4>
+        <p>@Model.ParkDescription</p>
+        <p>@Model.State</p>
+        <p>Entry Fee: @Model.EntryFee.ToString("C")</p>
+        <p><span>Climate:</span> @Model.Climate</p>
+        <p><span>Acreage:</span> @Model.Acreage</p>
+        <p><span>Elevation: </span>@Model.ElevationInFeet ft</p>
+        <p><span>Miles of Trail:</span> @Model.MilesOfTrail mi</p>
+        <p><span>Number of Campsites:</span> @Model.NumberOfCampsites</p>
+        <p><span>Annual Number of Visitors:</span> @Model.AnnualVisitorCount</p>
+        <p><span>Number of Animal Species:</span> @Model.AnimalSpecies</p>
+    </div>
+    <div>
+        <form method="get" asp-controller="Home" asp-action="ParkDetail">
+            <input type="hidden" name="id" value="@Model.ParkCode" />
+            <input type="submit" name="C" value="Submit" />
+            <select name="scale">
+                <option value="c">Celsius</option>
+                <option value="f">Fahrenheit</option>
+            </select>
+        </form>
+
+    </div>
+    <div class="weather-container">
+        <h2>WEATHER</h2>
+        @foreach (Weather weather in Model.Weathers)
+        {
+                @if (scale == "c")
+                {
+                    weather.DisplayHigh = (int)((weather.High - 32) * (.56));
+                    weather.DisplayLow = (int)((weather.Low - 32) * (.56));
+                }
+                else
+                {
+                    weather.DisplayHigh = weather.High;
+                    weather.DisplayLow = weather.Low;
+                }
+            <div class="days-container">
+                <img src="~/images/weather/@(weather.Forecast).png" />
+                <h3>@weather.Forecast</h3>
+                <h3>High @weather.DisplayHigh</h3>
+                <h3>Low @weather.DisplayLow</h3>
+                
+
+                <p>@weather.ForecastSuggestionString(weather.Forecast)</p>
+                <p>@weather.TempSuggestionString(weather.High, weather.Low)</p>
+            </div>
+        }
+    </div>
+
 </div>
-
-<div class="weather-container">
-    <h2>WEATHER</h2>
-    @foreach (Weather weather in Model.Weathers)
-    {
-         <div class="days-container">
-             <img src="~/images/weather/@(weather.Forecast).png" />
-             <h3>@weather.Forecast</h3>
-             <h3>High @weather.High Low @weather.Low</h3>
-
-             <p>@weather.ForecastSuggestionString(weather.Forecast)</p>
-             <p>@weather.TempSuggestionString(weather.High,weather.Low)</p>
-
-        </div>
-
-
-    }
-</div>
-
-
