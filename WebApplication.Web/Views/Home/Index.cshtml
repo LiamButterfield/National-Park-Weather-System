@@ -4,14 +4,16 @@
 }
 
 
-<div>
+<div id="first-page-container">
     @foreach(Park park in Model)
     {
-    <a asp-controller="Home" asp-action="ParkDetail" asp-route-id="@park.ParkCode">
-        <h1>@park.ParkName</h1>
-        <img src="~/images/parks/@(park.ParkCode.ToLower()).jpg" />
-    </a>
-        <h2>@park.State</h2>
-        <p>@park.ParkDescription</p>
+         <div class="park-home">
+                <a asp-controller="Home" asp-action="ParkDetail" asp-route-id="@park.ParkCode">
+                    <h1>@park.ParkName</h1>
+                    <img src="~/images/parks/@(park.ParkCode.ToLower()).jpg" />
+                </a>
+                <h2>@park.State</h2>
+                <p>@park.ParkDescription</p>
+            </div>
     }
 </div>

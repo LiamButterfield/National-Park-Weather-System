@@ -34,6 +34,15 @@ namespace WebApplication.Web.Controllers
             return View(park);
         }
 
+        //[HttpPost]
+        //public void 
+
+
+        //public void AddToChoice(Weather p)
+
+            //[HttpPost]
+            ///redirects you to the temperature you want if C saves to celsius if F saves in farehnheit
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

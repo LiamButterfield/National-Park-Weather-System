@@ -2,3 +2,15 @@
     width: 100%;
     height: auto;
 }
+
+span{
+    font-weight:bold;
+}
+
+#first-page-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "nav" "main" "order-now" "store";
+    grid-gap: 10px;
+}
+}

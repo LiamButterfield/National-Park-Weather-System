@@ -51,5 +51,11 @@ namespace WebApplication.Web.Models
             }  
             return suggestion;
         }
+
+        public decimal ConvertTempToCelsius (int temp)
+        {
+            decimal newTemp = (decimal)(temp - 32) * (5 / 9);
+            return newTemp;
+        }
     }
 }
