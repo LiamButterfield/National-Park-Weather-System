@@ -8,7 +8,10 @@
 </head>
 <body>
     <img id="geek-logo" src="~/images/logo.png" />
-
+    <ul class="default-tab">
+        <li class="default-button"><a asp-action="Index" asp-controller="Home">Home</a></li>
+        <li class="default-button"><a asp-action="Index" asp-controller="Survey">Survey</a></li>
+    </ul>
 
     @RenderBody()
 
