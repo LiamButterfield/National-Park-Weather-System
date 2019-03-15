@@ -63,7 +63,7 @@ namespace WebApplication.Web.DAL
 
                     SqlCommand cmd = new SqlCommand(@"SELECT survey_result.parkCode, park.parkName, COUNT(survey_result.parkCode) AS favorite FROM survey_result
                                                         JOIN park ON(park.parkCode = survey_result.parkCode)
-                                                        GROUP BY survey_result.parkCode, park.parkName ORDER By favorite DESC", conn);
+                                                        GROUP BY survey_result.parkCode, park.parkName ORDER By favorite DESC, park.parkName ASC", conn);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
