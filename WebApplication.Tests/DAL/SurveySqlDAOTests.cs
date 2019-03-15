@@ -19,5 +19,26 @@ namespace WebApplication.Tests.DAL
 
             Assert.AreEqual(1, surveys.Count);
         }
+
+        [TestMethod]
+        public void AddSurvey_should_IncreaseCountBy1()
+        {
+            SurveySqlDAO dao = new SurveySqlDAO(ConnectionString);
+            int initalRowCount = GetRowCount("survey_result");
+
+            Survey sur = new Survey()
+            {
+                ParkCode = "XYZ",
+                EmailAddress = "test1@email.com",
+                State = "Ohio",
+                ActivityLevel = "Inactive",
+    
+            };
+
+            dao.CreateSurvey(sur);
+
+            int finalRowCount = GetRowCount("survey_result");
+            Assert.AreEqual(initalRowCount + 1, finalRowCount);
+        }
     }
 }
