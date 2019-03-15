@@ -61,6 +61,35 @@ ul.default-tab{
     font-size:1.3rem;
 }
 
+#Detail-grid{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        "image image"
+        "details details"
+        "blockone blocktwo"
+        "weather weather";
+}
+
+.detail-image{
+    grid-area:image;
+}
+
+.details-container{
+    grid-area:details;
+}
+
+.details-blockone{
+    grid-area:blockone;
+}
+
+.details-blocktwo{
+    grid-area:blocktwo;
+}
+
+.Main-Weather-Panel{
+    grid-area:weather;
+}
 
 .quote{
     text-align:center;
@@ -74,6 +103,7 @@ img.detail-image {
 
 .weather-container{
     display:flex;
+    flex-wrap:wrap;
 }
 
 .days-container{

@@ -3,23 +3,24 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-<div id="first-page-container">
-    @foreach(Park park in Model)
-    {
-    <div class="park-home">
-        <div class="park-home-image">
-            <a asp-controller="Home" asp-action="ParkDetail" asp-route-id="@park.ParkCode">
-                <img class="home-image" src="~/images/parks/@(park.ParkCode.ToLower()).jpg" />
-            </a>
-        </div>
-        <div class="park-home-text">
-            <a asp-controller="Home" asp-action="ParkDetail" asp-route-id="@park.ParkCode">
-                <h1 class="park-home-name">@park.ParkName</h1>
-            </a>
-            <h2>Location: @park.State</h2>
-            <p>@park.ParkDescription</p>
-        </div>
+<div class="Main-Panel">
+    <div id="first-page-container">
+        @foreach (Park park in Model)
+        {
+            <div class="park-home">
+                <div class="park-home-image">
+                    <a asp-controller="Home" asp-action="ParkDetail" asp-route-id="@park.ParkCode">
+                        <img class="home-image" src="~/images/parks/@(park.ParkCode.ToLower()).jpg" />
+                    </a>
+                </div>
+                <div class="park-home-text">
+                    <a asp-controller="Home" asp-action="ParkDetail" asp-route-id="@park.ParkCode">
+                        <h1 class="park-home-name">@park.ParkName</h1>
+                    </a>
+                    <h2>Location: @park.State</h2>
+                    <p>@park.ParkDescription</p>
+                </div>
+            </div>
+        }
     </div>
-    }
 </div>

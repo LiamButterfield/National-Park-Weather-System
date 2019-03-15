@@ -4,39 +4,47 @@
     string scale = (string)ViewData["scale"]; 
 }
 
-<div class="Main-Panel">
-
-    <img class="detail-image" src="~/images/parks/@(Model.ParkCode).jpg" />
-    <h1 class="quote">@Model.ParkName<span> est. @Model.YearFounded</span></h1>
-
+<div class="Main-Panel" id="Detail-grid">
+    
+        <img class="detail-image" src="~/images/parks/@(Model.ParkCode).jpg" />
 
     <div class="details-container">
+        <h1 class="quote">@Model.ParkName<span> est. @Model.YearFounded</span></h1>
         <h3 class="quote">"@Model.Quote"</h3>
         <h4 class="quote">--@Model.QuoteSource</h4>
         <p>@Model.ParkDescription</p>
+    </div>
+
+    <div class="details-blockone">
         <h4><span>Entry Fee:</span> @Model.EntryFee.ToString("C")</h4>
         <p><span>Location:</span>@Model.State</p>      
         <p><span>Climate:</span> @Model.Climate</p>
         <p><span>Acreage:</span> @Model.Acreage</p>
         <p><span>Elevation: </span>@Model.ElevationInFeet ft</p>
+    </div>
+
+    <div class="details-blocktwo">
         <p><span>Miles of Trail:</span> @Model.MilesOfTrail mi</p>
         <p><span>Number of Campsites:</span> @Model.NumberOfCampsites</p>
         <p><span>Annual Number of Visitors:</span> @Model.AnnualVisitorCount</p>
         <p><span>Number of Animal Species:</span> @Model.AnimalSpecies</p>
     </div>
-    <div>
-        <form method="get" asp-controller="Home" asp-action="ParkDetail">
-            <input type="hidden" name="id" value="@Model.ParkCode" />         
-            <select name="scale">
-                <option value="c">Celsius</option>
-                <option value="f">Fahrenheit</option>
-            </select>
-            <input type="submit" name="C" value="Submit" />
-        </form>
 
-    </div>
     <div class="Main-Weather-Panel">
         <h2>5-day Weather Forecast</h2>
+        <div class="weather-button">
+            <form method="get" asp-controller="Home" asp-action="ParkDetail">
+                <input type="hidden" name="id" value="@Model.ParkCode" />
+                <select name="scale">
+                    <option value="c">Celsius</option>
+                    <option value="f">Fahrenheit</option>
+                </select>
+                <input type="submit" name="C" value="Submit" />
+            </form>
+
+        </div>
+
+        
         <div class="weather-container">
 
             @foreach (Weather weather in Model.Weathers)
