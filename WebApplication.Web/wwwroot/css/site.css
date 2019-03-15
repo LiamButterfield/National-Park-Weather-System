@@ -85,10 +85,12 @@ ul.default-tab{
 
 .details-blocktwo{
     grid-area:blocktwo;
+    
 }
 
 .Main-Weather-Panel{
     grid-area:weather;
+    border-top:dashed 2px black;
 }
 
 .quote{
@@ -107,12 +109,32 @@ img.detail-image {
 }
 
 .days-container{
-    border:dashed 3px black;
     padding-left:10px;
     padding-right:10px;
     background-color:lightgoldenrodyellow;
+    width:15%;
+    height:auto;
 }
 
+.days-container:first-child{
+    width:20%;
+    height:auto;
+}
+
+.days-container:first-child .today{
+    display:contents;
+    align-self:center;
+   
+}
+
+.weather-img{
+    width:100%;
+    height:auto;
+}
 .days-container h2{
     text-align:center;
+}
+
+.today{
+    display:none; 
 }
