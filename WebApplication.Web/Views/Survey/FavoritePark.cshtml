@@ -3,18 +3,21 @@
     ViewData["Title"] = "FavoritePark";
 }
 <div class="Main-Panel">
-    <h2>Favorite Parks</h2>
+    <h1>Favorite Parks</h1>
 
     <div>
-        <h1>Thanks for participating in the Survey</h1>
-        <h2>Below are the current results</h2>
+        <h1 class="Italic">Thanks for participating in the Survey!</h1>
+        <h2>Below are the current results: </h2>
+        <div class="Survey-Result">
+            @foreach (SurveyResult survey in Model)
+            {
+            <div class="Survey-Count">
+                <img class="Survey-Img" src="~/images/parks/@(survey.ParkCode).jpg" />
+                <h2>@survey.ParkName : <span>@survey.SurveyCount Votes</span></h2>
+            </div>
+            }
+         </div>
+            <h3 class="Italic">THANK YOU for visiting our WONDERFUL National Parks!!!</h3>
 
-        @foreach (SurveyResult survey in Model)
-        {
-            <img src="~/images/parks/@(survey.ParkCode).jpg" />
-            <h2>@survey.ParkName : <span>@survey.SurveyCount</span></h2>
-        }
-        <h3>THANK YOU for visiting our WONDERFUL National Parks!!!</h3>
-
-    </div>
+        </div>
  </div>

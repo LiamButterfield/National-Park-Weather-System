@@ -9,6 +9,9 @@ using WebApplication.Web.Models;
 
 namespace WebApplication.Web.Controllers
 {
+    /// <summary>
+    /// Includes views of survey form and results
+    /// </summary>
     public class SurveyController : Controller
     {
         private ISurveyDAO surveyDao;

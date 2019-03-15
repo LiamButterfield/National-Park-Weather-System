@@ -119,6 +119,7 @@ img.detail-image {
 .days-container:first-child{
     width:20%;
     height:auto;
+    border-right: 1px solid black;
 }
 
 .days-container:first-child .today{
@@ -187,3 +188,39 @@ img.detail-image {
     100% {transform: translate(1px, -2px) rotate(-1deg);}
 }
 
+.Pulse-Button:hover {
+    animation: pulse 1s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+}
+
+.Survey-Result {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Survey-Count {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.Survey-Img {
+    padding-right: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.Italic {
+    font-style: italic;
+}
+
+.Pulse-home-image:hover {
+    animation: pulse 1s infinite;
+    animation-timing-function: linear;
+}

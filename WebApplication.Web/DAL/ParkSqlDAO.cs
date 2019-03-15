@@ -15,11 +15,20 @@ namespace WebApplication.Web.DAL
             this.connectionString = connectionString;
         }
 
+        /// <summary>
+        /// Returns details about a specific park
+        /// </summary>
+        /// <param name="parkCode"></param>
+        /// <returns>park object</returns>
         public Park GetParkDetails(string parkCode)
         {
             return GetAllParks().FirstOrDefault(p => p.ParkCode == parkCode);
         }
 
+        /// <summary>
+        /// Returns a list of all parks in the database
+        /// </summary>
+        /// <returns></returns>
         public IList<Park> GetAllParks()
         {
             IList<Park> parks = new List<Park>();

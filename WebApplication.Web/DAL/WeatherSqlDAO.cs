@@ -15,6 +15,11 @@ namespace WebApplication.Web.DAL
             this.connectionString = connectionString;
         }
 
+        /// <summary>
+        /// Provides a 5 day forecast for a specific park
+        /// </summary>
+        /// <param name="parkCode"></param>
+        /// <returns></returns>
         public IList<Weather> GetForecast(string parkCode)
         {
             IList<Weather> weathers = new List<Weather>();

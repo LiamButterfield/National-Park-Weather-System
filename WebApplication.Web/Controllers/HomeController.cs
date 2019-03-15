@@ -10,6 +10,9 @@ using WebApplication.Web.Models;
 
 namespace WebApplication.Web.Controllers
 {
+    /// <summary>
+    /// Includes views of park details and weather
+    /// </summary>
     public class HomeController : Controller
     {
         private IParkDAO parkDao;

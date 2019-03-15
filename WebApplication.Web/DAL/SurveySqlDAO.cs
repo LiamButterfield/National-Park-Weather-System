@@ -15,6 +15,11 @@ namespace WebApplication.Web.DAL
             this.connectionString = connectionString;
         }
 
+        /// <summary>
+        /// Adds a survey to the survey_result table
+        /// </summary>
+        /// <param name="survey"></param>
+        /// <returns></returns>
         public bool CreateSurvey(Survey survey)
         {
             bool saved = false;
@@ -42,6 +47,10 @@ namespace WebApplication.Web.DAL
             return saved;
         }
 
+        /// <summary>
+        /// Provides a list of voted favorite parks based on survey results
+        /// </summary>
+        /// <returns></returns>
         public IList<SurveyResult> Results()
         {
             IList<SurveyResult> results = new List<SurveyResult>();
