@@ -50,10 +50,9 @@
             @foreach (Weather weather in Model.Weathers)
             {
             <div class="days-container">
-                <h2>Day @weather.FiveDay</h2>
+                <h2 class="Day-Label">Day @weather.FiveDay</h2>
                 <h2 class="today">TODAY</h2>
                 <img class="weather-img" src="~/images/weather/@(weather.Forecast).png" />
-                <h3>@weather.Forecast</h3>
 
                 @if (scale == "c")
                 {
